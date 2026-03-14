@@ -1,67 +1,43 @@
-import { motion } from "motion/react";
-import { Heart, Mail, MapPin } from "lucide-react";
-import { ImageWithFallback } from "../components/ImageWithFallback";
 import { personalInfo } from "../data/portfolio-data";
-
-const values = [
-  {
-    icon: "01",
-    title: "User-Centric",
-    description: "Putting user needs first in every decision, grounded in empathy, research, and useful feedback loops.",
-    tone: "blue",
-  },
-  {
-    icon: "02",
-    title: "Data-Driven",
-    description: "Making informed decisions through metrics, testing, and iteration instead of relying on instinct alone.",
-    tone: "violet",
-  },
-  {
-    icon: "03",
-    title: "Impact-Focused",
-    description: "Prioritizing work that creates measurable business value while staying practical about delivery.",
-    tone: "emerald",
-  },
-];
+import { ImageWithFallback } from "../components/ImageWithFallback";
+import { MapPin, Mail, Heart } from "lucide-react";
+import { motion } from "motion/react";
 
 export function About() {
   return (
     <div className="py-16 sm:py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-16 text-center"
+          className="text-center mb-16"
         >
-          <h1 className="mb-4 text-4xl text-gray-900 dark:text-white sm:text-5xl">About Me</h1>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-300">
-            Learn more about my journey, interests, and what drives me as a product manager.
+          <h1 className="text-4xl sm:text-5xl text-gray-900 dark:text-white mb-4">About Me</h1>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Learn more about my journey, interests, and what drives me as a product manager
           </p>
         </motion.div>
 
-        <div className="mb-20 grid gap-12 lg:grid-cols-3">
+        <div className="grid lg:grid-cols-3 gap-12 mb-20">
           <div className="lg:col-span-1">
             <div className="sticky top-24">
-              <div className="mx-auto mb-6 aspect-square w-full max-w-sm lg:mx-0">
+              <div className="aspect-square w-full max-w-sm mx-auto lg:mx-0 mb-6">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1760536928911-40831dacdbc3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBkZXZlbG9wZXIlMjB3b3Jrc3BhY2UlMjBkZXNrfGVufDF8fHx8MTc3MzEwMDIwM3ww&ixlib=rb-4.1.0&q=80&w=1080"
-                  alt="Workspace portrait"
-                  className="h-full w-full rounded-[2rem] object-cover shadow-lg"
+                  alt="About"
+                  className="w-full h-full object-cover rounded-2xl shadow-lg"
                 />
               </div>
 
-              <div className="space-y-4 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 space-y-4">
                 <div className="flex items-center gap-3 text-gray-700 dark:text-gray-300">
                   <MapPin size={20} className="text-blue-600 dark:text-blue-400" />
                   <span>{personalInfo.location}</span>
                 </div>
                 <div className="flex items-center gap-3 text-gray-700 dark:text-gray-300">
                   <Mail size={20} className="text-blue-600 dark:text-blue-400" />
-                  <a
-                    href={`mailto:${personalInfo.email}`}
-                    className="transition-colors hover:text-blue-600 dark:hover:text-blue-400"
-                  >
+                  <a href={`mailto:${personalInfo.email}`} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                     {personalInfo.email}
                   </a>
                 </div>
@@ -69,80 +45,87 @@ export function About() {
             </div>
           </div>
 
-          <div className="space-y-6 lg:col-span-2">
-            <section className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-              <h2 className="mb-6 text-2xl text-gray-900 dark:text-white">My Story</h2>
-              <div className="space-y-4 leading-relaxed text-gray-700 dark:text-gray-300">
-                {personalInfo.aboutParagraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+          <div className="lg:col-span-2 space-y-6">
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-8">
+              <h2 className="text-2xl text-gray-900 dark:text-white mb-6">My Story</h2>
+              <div className="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+                {personalInfo.aboutParagraphs.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
                 ))}
               </div>
-            </section>
+            </div>
 
-            <section className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-              <div className="mb-6 flex items-center gap-2">
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-8">
+              <div className="flex items-center gap-2 mb-6">
                 <Heart size={24} className="text-blue-600 dark:text-blue-400" />
                 <h2 className="text-2xl text-gray-900 dark:text-white">Interests & Passions</h2>
               </div>
-              <div className="grid gap-3 sm:grid-cols-2">
-                {personalInfo.interests.map((interest) => (
+              <div className="grid sm:grid-cols-2 gap-3">
+                {personalInfo.interests.map((interest, index) => (
                   <div
-                    key={interest}
-                    className="flex items-center gap-2 rounded-2xl bg-gray-50 px-4 py-3 dark:bg-gray-900/50"
+                    key={index}
+                    className="flex items-center gap-2 px-4 py-3 bg-gray-50 dark:bg-gray-900/50 rounded-lg"
                   >
-                    <div className="h-2 w-2 rounded-full bg-blue-600 dark:bg-blue-400" />
+                    <div className="w-2 h-2 bg-blue-600 dark:bg-blue-400 rounded-full"></div>
                     <span className="text-gray-700 dark:text-gray-300">{interest}</span>
                   </div>
                 ))}
               </div>
-            </section>
+            </div>
           </div>
         </div>
 
-        <motion.section
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="rounded-[2rem] bg-gradient-to-br from-blue-50 to-violet-50 p-8 dark:from-gray-900 dark:to-gray-800 sm:p-12"
+          className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 sm:p-12"
         >
-          <h2 className="mb-8 text-center text-3xl text-gray-900 dark:text-white">Core Values</h2>
-          <div className="grid gap-8 md:grid-cols-3">
-            {values.map((value, index) => (
+          <h2 className="text-3xl text-gray-900 dark:text-white mb-8 text-center">Core Values</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                emoji: "🎯",
+                circleBg: "bg-blue-600 dark:bg-blue-500",
+                title: "User-Centric",
+                description: "Putting user needs first in every decision, backed by research and empathy"
+              },
+              {
+                emoji: "📊",
+                circleBg: "bg-purple-600 dark:bg-purple-500",
+                title: "Data-Driven",
+                description: "Making informed decisions through metrics, testing, and continuous iteration"
+              },
+              {
+                emoji: "🚀",
+                circleBg: "bg-green-600 dark:bg-green-500",
+                title: "Impact-Focused",
+                description: "Prioritizing features and initiatives that deliver measurable business value"
+              }
+            ].map((value, index) => (
               <motion.div
                 key={value.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
+                transition={{ delay: index * 0.1 }}
                 className="text-center"
               >
                 <motion.div
-                  whileHover={{ scale: 1.08, rotate: 3 }}
-                  className={`mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full text-sm font-bold text-white ${toneClass(
-                    value.tone,
-                  )}`}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  className={`w-16 h-16 ${value.circleBg} text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl`}
                 >
-                  {value.icon}
+                  {value.emoji}
                 </motion.div>
-                <h3 className="mb-2 text-xl text-gray-900 dark:text-white">{value.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300">{value.description}</p>
+                <h3 className="text-xl text-gray-900 dark:text-white mb-2">{value.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300">
+                  {value.description}
+                </p>
               </motion.div>
             ))}
           </div>
-        </motion.section>
+        </motion.div>
       </div>
     </div>
   );
-}
-
-function toneClass(tone: string) {
-  if (tone === "violet") {
-    return "bg-violet-600 dark:bg-violet-500";
-  }
-
-  if (tone === "emerald") {
-    return "bg-emerald-600 dark:bg-emerald-500";
-  }
-
-  return "bg-blue-600 dark:bg-blue-500";
 }
