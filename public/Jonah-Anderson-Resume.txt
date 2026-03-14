@@ -1,0 +1,38 @@
+Jonah Anderson
+Brooklyn, New York | 757-803-8443 | jonahmanderson10@gmail.com | linkedin.com/in/jonahanderson98/
+
+EDUCATION
+University of Virginia, Charlottesville, VA | 2016 - 2020
+- Bachelor of Arts in Computer Science
+- Minor in Religious Studies
+
+WORK EXPERIENCE
+DAT Freight and Analytics, New York, New York | April 2024 - Present
+Senior Product Manager, Integrations | May 2025 - Present
+- Directed product strategy and execution for DAT's TMS integrations, protecting enterprise ARR through continued partner adoption.
+- Built a self-service load tracking integration experience that reduced setup-related support escalations by 10%.
+- Implemented partner affiliation in API headers to surface integration health by source, enabling data-driven partner level reporting.
+- Authored partner-facing PRDs, workflow documentation, and validation requirements that became the standard playbook for new integrations.
+- Created partner migration strategy for SOAP API sunset and backward-compatible adapters to prevent revenue reduction during deprecation.
+
+Product Ops Analyst (Trucker Tools Acquisition) | April 2024 - May 2025
+- Owned lifecycle of TMS integrations across tracking, posting, offers, and bids, acting as technical liaison for partners and enterprise brokers.
+- Expanded the partner ecosystem by driving a 30% increase in active TMS integrations across the network.
+- Directly influenced about $25K in new MRR through custom pilots and integration-led presale enablement for enterprise accounts.
+- Defined and formalized the sales engineer motion for large deals, drafting statements of work, integration scopes, and pilot success criteria.
+
+Coast, Technical Product Manager, New York, New York | May 2023 - March 2024
+- Orchestrated beta and GA launches and expanded the public API with new endpoints, driving partner adoption and opening new acquisition channels.
+- Spearheaded a cross-functional project applying SQL data analysis to reduce the decline rate of integration-related transactions by 53% within six months.
+- Led the delivery of a complex accounting integration, facilitating entry into an additional product area.
+
+Qualtrics, Reston, VA | November 2020 - May 2023
+Product Manager | January 2022 - May 2023
+- Led product strategy and roadmap for third-party API integrations, expanding partner connectivity and platform capability.
+- Scaled ingestion infrastructure to support a 10% increase in new records processed within six months.
+- Drove customer migration to AWS, improving scalability while reducing operational and infrastructure costs.
+
+TECHNICAL SKILLS
+- Languages: Python, Java, C/C++, SQL, HTML/CSS
+- Tools: Jira, Confluence, Airtable, AWS, Postman, Figma
+- Skills: Agile, REST and SOAP APIs, webhooks, user experience
