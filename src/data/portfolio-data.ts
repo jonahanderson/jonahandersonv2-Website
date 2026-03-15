@@ -8,14 +8,14 @@ export const personalInfo = {
   social: {
     github: "https://github.com/jonahanderson",
     linkedin: "https://www.linkedin.com/in/jonahanderson98/",
-    twitter: "https://twitter.com/jonahanderson",
   },
   interests: [
     "Product Strategy",
     "API Integrations",
     "Data Analytics",
-    "Cross-Functional Leadership",
-    "Partner Ecosystems"
+    "Agentic Integrations",
+    "Partner Ecosystems",
+    "The New York Knicks"
   ],
   aboutParagraphs: [
     "I fell in love with product management when I discovered the perfect intersection of technology, business, and user empathy. Throughout my career, I've launched products that have reached millions of users and generated significant business value.",
@@ -66,18 +66,19 @@ export const experience = [
     position: "Senior Product Manager, Integrations",
     period: "April 2024 - Present",
     location: "New York, NY",
-    description: "Directing product strategy and execution for DAT's TMS integrations, protecting enterprise ARR through continued partner adoption.",
+    description:"",
+    // description: "Directing product strategy and execution for DAT's TMS integrations, protecting enterprise ARR through continued partner adoption.",
     achievements: [],
     roles: [
       {
         title: "Senior Product Manager, Integrations",
         period: "May 2025 - Present",
         achievements: [
-          "Directed product strategy and execution for DAT's TMS integrations, protecting enterprise ARR through continued partner adoption",
-          "Built a self-service load tracking integration experience that eliminated onboarding friction and reduced setup-related support escalations by 10%",
-          "Implemented partner affiliation in API headers to surface integration health by source, enabling data-driven partner level reporting",
-          "Authored partner-facing PRDs, workflow documentation, and validation requirements that became the standard playbook for new integrations",
-          "Created partner migration strategy for SOAP API sunset and backward-compatible adapters to prevent revenue reduction during deprecation"
+          "Owned product strategy for DAT’s integration ecosystem connecting major transportation platforms, supporting millions in recurring revenue and the majority of broker, shipper, and carrier workflow automation across the network",
+          "Managed DAT’s developer portal experience, surfacing new APIs and integration capabilities to partners and customers while improving discoverability, documentation, and onboarding for external developers",
+          "Led the strategy for deprecating legacy SOAP APIs and migrating partners to REST, designing backward-compatible adapters to protect $6M+ in MRR while preventing disruption to enterprise TMS integrations",
+          "Introduced partner attribution within API headers, enabling monitoring of integration performance by TMS partner and unlocking data-driven reliability reporting",
+          "Authored the standard playbook for new TMS integrations including PRDs, workflow specifications, and validation frameworks adopted across partner onboarding"
         ]
       },
       {
@@ -86,8 +87,8 @@ export const experience = [
         achievements: [
           "Owned lifecycle of TMS integrations across tracking, posting, offers, and bids, acting as technical liaison for partners and enterprise brokers",
           "Expanded the partner ecosystem by driving a 30% increase in active TMS integrations across the network",
-          "Directly influenced ~$25K new MRR through custom pilots and integration-led presale enablement for enterprise accounts",
-          "Defined and formalized the \"sales engineer\" motion for large deals, drafting Statements of Work, integration scopes, and pilot success criteria"
+          "Enabled enterprise deals through integration-led pilots and technical presale support, influencing $25K+ in new recurring revenue",
+          "Defined and formalized the “sales engineer” motion for large deals, drafting Statements of Work, integration scopes, and pilot success criteria"
         ]
       }
     ]
@@ -98,11 +99,12 @@ export const experience = [
     position: "Technical Product Manager",
     period: "May 2023 - March 2024",
     location: "New York, NY",
-    description: "Orchestrated beta and GA launches and expanded the public API with new endpoints, driving partner adoption and opening new acquisition channels.",
+    // description: "Orchestrated beta and GA launches and expanded the public API with new endpoints, driving partner adoption and opening new acquisition channels.",
+    description:"",
     achievements: [
-      "Spearheaded a cross-functional project applying SQL data analysis to reduce the decline rate of integration-related transactions by 53% within six months",
-      "Led the delivery of the complex accounting integration, mastering accounting concepts and software, which facilitated the entry into an additional product area",
-      "Orchestrated beta and GA launches and expanded the public API with new endpoints, driving partner adoption and opening new acquisition channels"
+      "Orchestrated beta and GA launches and expanded the public API with new endpoints, driving partner adoption and opening new acquisition channels",
+      "Applied SQL-driven analysis to identify failure patterns in integration transactions, reducing decline rates by 53% within six months",
+      "Led the delivery of the complex accounting integration, mastering accounting concepts and software, which facilitated the entry into an additional product area"
     ]
   },
   {
@@ -111,7 +113,8 @@ export const experience = [
     position: "Product Manager",
     period: "November 2020 - May 2023",
     location: "Reston, VA",
-    description: "Led product strategy and roadmap for third-party API integrations, expanding partner connectivity and platform capability.",
+    // description: "Led product strategy and roadmap for third-party API integrations, expanding partner connectivity and platform capability.",
+    description:"",
     achievements: [],
     roles: [
       {

@@ -30,14 +30,16 @@ export function Experience() {
             A showcase of my professional journey, products, and PM expertise
           </p>
 
-          <motion.button
+          <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            href="/Jonah-Anderson-Resume.pdf"
+            download="Jonah-Anderson-Resume.pdf"
             className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 dark:bg-blue-500 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors"
           >
             <Download size={18} />
             Download Resume
-          </motion.button>
+          </motion.a>
         </motion.div>
 
         <div className="flex justify-center mb-12">

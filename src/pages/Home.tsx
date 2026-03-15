@@ -1,11 +1,11 @@
 import { Link } from "react-router";
-import { Github, Linkedin, Twitter, ArrowRight, Mail } from "lucide-react";
+import { Github, Linkedin, ArrowRight, Mail } from "lucide-react";
 import { personalInfo } from "../data/portfolio-data";
 import { ImageWithFallback } from "../components/ImageWithFallback";
 import { motion } from "motion/react";
 
 const headshot =
-  "https://images.unsplash.com/photo-1645134711019-29fe79dd27c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=900";
+  "/jonah-headshot.png";
 
 export function Home() {
   return (
@@ -83,7 +83,6 @@ export function Home() {
                 {[
                   { icon: Github, url: personalInfo.social.github, label: "GitHub" },
                   { icon: Linkedin, url: personalInfo.social.linkedin, label: "LinkedIn" },
-                  { icon: Twitter, url: personalInfo.social.twitter, label: "Twitter" },
                   { icon: Mail, url: `mailto:${personalInfo.email}`, label: "Email" },
                 ].map((social, index) => (
                   <motion.a
@@ -141,9 +140,9 @@ export function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { value: "5+", label: "Years Experience" },
-              { value: "4", label: "Companies" },
-              { value: "53%", label: "Decline Rate Reduced" },
-              { value: "30%", label: "Integration Growth" },
+              { value: "100+", label: "Integration Partners" },
+              { value: "Thousands", label: "Businesses Served" },
+              { value: "Millions", label: "API Transactions" },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
