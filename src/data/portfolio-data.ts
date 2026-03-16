@@ -57,8 +57,11 @@ export const skills = {
     "Confluence",
     "Figma",
     "AWS",
+    "Vercel",
     "Postman",
-    "Airtable"
+    "Snowflake",
+    "OpenAI Codex",
+    "Claude Code",
   ]
 };
 
