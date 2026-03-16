@@ -10,6 +10,12 @@ export function Navigation() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const [showTooltip, setShowTooltip] = useState(false);
 
+  const resetScrollPosition = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
+
   const navLinks = [
     { path: "/", label: "Home" },
     { path: "/about", label: "About" },
@@ -33,6 +39,7 @@ export function Navigation() {
                 <Link
                   key={link.path}
                   to={link.path}
+                  onClick={resetScrollPosition}
                   className={`text-sm transition-colors ${
                     isActive(link.path)
                       ? "text-blue-600 dark:text-blue-400"
@@ -120,7 +127,10 @@ export function Navigation() {
                 <Link
                   key={link.path}
                   to={link.path}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    setIsOpen(false);
+                    resetScrollPosition();
+                  }}
                   className={`block px-4 py-2 rounded-lg text-sm transition-colors ${
                     isActive(link.path)
                       ? "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400"

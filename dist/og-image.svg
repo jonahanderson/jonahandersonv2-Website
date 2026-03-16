@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="JA logo mark">
+  <defs>
+    <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#a78bfa" />
+    </linearGradient>
+    <radialGradient id="bgGlow" cx="50%" cy="42%" r="70%">
+      <stop offset="0%" stop-color="#1f2937" />
+      <stop offset="100%" stop-color="#111827" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGlow)" />
+  <circle cx="600" cy="315" r="170" fill="url(#brandGradient)" />
+  <circle cx="600" cy="315" r="150" fill="#1f2937" />
+  <text
+    x="600"
+    y="328"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-family="Manrope, Arial, sans-serif"
+    font-size="130"
+    font-weight="800"
+    fill="url(#brandGradient)"
+    letter-spacing="-3"
+  >
+    JA
+  </text>
+</svg>

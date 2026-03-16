@@ -1,7 +1,7 @@
 import { ExternalLink, FileText } from "lucide-react";
 import { ImageWithFallback } from "./ImageWithFallback";
 import { motion } from "motion/react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 interface ProjectCardProps {
   title: string;
@@ -28,6 +28,9 @@ export function ProjectCard({
   writeUpUrl,
   writeUpLabel = "Post",
 }: ProjectCardProps) {
+  const navigate = useNavigate();
+  const cardDestination = writeUpUrl && !isExternalUrl(writeUpUrl) ? writeUpUrl : undefined;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -35,7 +38,27 @@ export function ProjectCard({
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
       whileHover={{ y: -5 }}
-      className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow"
+      onClick={(event) => {
+        if (!cardDestination) return;
+
+        const target = event.target as HTMLElement;
+        if (target.closest("a, button")) return;
+
+        navigate(cardDestination);
+      }}
+      onKeyDown={(event) => {
+        if (!cardDestination) return;
+        if (event.key !== "Enter" && event.key !== " ") return;
+
+        event.preventDefault();
+        navigate(cardDestination);
+      }}
+      role={cardDestination ? "link" : undefined}
+      tabIndex={cardDestination ? 0 : undefined}
+      aria-label={cardDestination ? `Open project post: ${title}` : undefined}
+      className={`bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow ${
+        cardDestination ? "cursor-pointer" : ""
+      }`}
     >
       <div className="aspect-video w-full overflow-hidden bg-gray-100 dark:bg-gray-900">
         <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>

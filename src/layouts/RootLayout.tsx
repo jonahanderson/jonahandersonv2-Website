@@ -1,12 +1,14 @@
 import { Outlet } from "react-router";
 import { Navigation } from "../components/Navigation";
 import { DarkModeProvider } from "../contexts/DarkModeContext";
+import { ScrollToTop } from "../components/ScrollToTop";
 
 export function RootLayout() {
   return (
     <DarkModeProvider>
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
         <Navigation />
+        <ScrollToTop />
         <main className="pt-16">
           <Outlet />
         </main>
