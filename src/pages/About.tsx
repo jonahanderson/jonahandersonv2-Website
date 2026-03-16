@@ -24,7 +24,7 @@ export function About() {
             <div className="sticky top-24">
               <div className="aspect-square w-full max-w-sm mx-auto lg:mx-0 mb-6">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1760536928911-40831dacdbc3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBkZXZlbG9wZXIlMjB3b3Jrc3BhY2UlMjBkZXNrfGVufDF8fHx8MTc3MzEwMDIwM3ww&ixlib=rb-4.1.0&q=80&w=1080"
+                  src="/jonahandersonabout.png"
                   alt="About"
                   className="w-full h-full object-cover rounded-2xl shadow-lg"
                 />

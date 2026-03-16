@@ -46,7 +46,7 @@ export function Navigation() {
 
             <div className="relative">
               <a
-                href="https://v1.jonahanderson.com"
+                href="https://v1.jonahanderson.me"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
@@ -131,7 +131,7 @@ export function Navigation() {
                 </Link>
               ))}
               <a
-                href="https://v1.jonahanderson.com"
+                href="https://v1.jonahanderson.me"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"

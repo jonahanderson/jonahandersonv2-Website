@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router";
 import { experience, projects, skills, education } from "../data/portfolio-data";
 import { ProjectCard } from "../components/ProjectCard";
 import { ExperienceCard } from "../components/ExperienceCard";
@@ -7,14 +8,39 @@ import { motion } from "motion/react";
 
 type TabType = "experience" | "projects" | "skills";
 
+function isTabType(value: string | null): value is TabType {
+  return value === "experience" || value === "projects" || value === "skills";
+}
+
 export function Experience() {
-  const [activeTab, setActiveTab] = useState<TabType>("experience");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialTab = searchParams.get("tab");
+  const [activeTab, setActiveTab] = useState<TabType>(
+    isTabType(initialTab) ? initialTab : "experience",
+  );
 
   const tabs = [
     { id: "experience" as TabType, label: "Work Experience" },
     { id: "projects" as TabType, label: "Projects" },
     { id: "skills" as TabType, label: "Skills" },
   ];
+
+  const handleTabChange = (tab: TabType) => {
+    setActiveTab(tab);
+
+    if (tab === "experience") {
+      setSearchParams({});
+      return;
+    }
+
+    setSearchParams({ tab });
+  };
+
+  useEffect(() => {
+    const tabParam = searchParams.get("tab");
+    const nextTab = isTabType(tabParam) ? tabParam : "experience";
+    setActiveTab(nextTab);
+  }, [searchParams]);
 
   return (
     <div className="py-16 sm:py-20">
@@ -47,7 +73,7 @@ export function Experience() {
             {tabs.map((tab) => (
               <motion.button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => handleTabChange(tab.id)}
                 className={`flex-1 sm:flex-none whitespace-nowrap px-4 sm:px-6 py-3 rounded-md text-sm transition-colors relative ${
                   activeTab === tab.id
                     ? "text-blue-600 dark:text-blue-400"

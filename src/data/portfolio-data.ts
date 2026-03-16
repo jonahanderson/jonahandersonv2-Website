@@ -1,8 +1,10 @@
+import { projectPosts } from "./project-posts";
+
 export const personalInfo = {
   name: "Jonah Anderson",
   title: "Senior Product Manager",
-  tagline: "Building, designing, and coding in the New York metropolitan area",
-  bio: "I build, design, and code within the New York metropolitan area. Feel free to take a look at my experience and personal projects. If you like what you see, contact me and we can work together.",
+  tagline: "Designing and building software in New York City",
+  bio: "I design and build software products in New York, with a focus on APIs, integrations, and developer platforms. Explore my experience and projects, and feel free to reach out if you'd like to connect.",
   email: "jonahmanderson10@gmail.com",
   location: "Brooklyn, New York",
   social: {
@@ -18,9 +20,10 @@ export const personalInfo = {
     "The New York Knicks"
   ],
   aboutParagraphs: [
-    "I fell in love with product management when I discovered the perfect intersection of technology, business, and user empathy. Throughout my career, I've launched products that have reached millions of users and generated significant business value.",
-    "My approach to product management is rooted in continuous learning, customer obsession, and evidence-based decision making. I believe the best products are built when teams collaborate across disciplines with a shared vision.",
-    "Beyond building products, I'm passionate about mentoring aspiring PMs, speaking at industry events, and contributing to the product community through writing and sharing frameworks that have worked for me."
+    "I originally studied computer science with the goal of becoming a software developer. While working through classes and projects, I found myself increasingly drawn to the parts of building software that involved defining the problem, talking to users, and figuring out what should actually be built. I enjoyed writing code, but I liked shaping the product and understanding user needs even more.",
+    "That interest eventually led me toward product management. I started my career as an Associate Product Manager on a platform team, where I quickly became involved in work around how systems connect and exchange data. Over time I took ownership of data ingress and egress across platforms and eventually moved into an integrations-focused PM role.",
+    "Today I spend a lot of my time working on APIs, developer experience, and platform integrations. I enjoy the challenge of designing systems that allow other teams, partners, and developers to build on top of a platform effectively. There is something satisfying about creating clean interfaces between systems and making complex integrations feel simple for the people using them.",
+    "My approach to product management is rooted in curiosity, customer empathy, and continuous learning. I believe the best products are built when teams collaborate across disciplines with a shared vision, and I enjoy working closely with engineers, designers, and customers to understand problems deeply and ship solutions that actually move the needle."
   ]
 };
 
@@ -138,44 +141,17 @@ export const experience = [
   }
 ];
 
-export const projects = [
-  {
-    id: "1",
-    title: "Enterprise Analytics Platform",
-    description: "Led development of AI-powered analytics dashboard helping enterprise clients make data-driven decisions. Featured predictive insights and customizable reporting.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080",
-    tags: ["B2B SaaS", "Analytics", "AI/ML", "Enterprise"],
-    demoUrl: "https://example.com",
-    caseStudyUrl: "https://example.com/case-study"
-  },
-  {
-    id: "2",
-    title: "Mobile Marketplace Redesign",
-    description: "Complete product overhaul of mobile marketplace app, introducing personalized discovery, streamlined checkout, and social features that doubled engagement.",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080",
-    tags: ["Mobile", "Marketplace", "UX Redesign", "Growth"],
-    demoUrl: "https://example.com",
-    caseStudyUrl: "https://example.com/case-study"
-  },
-  {
-    id: "3",
-    title: "Payment Integration Platform",
-    description: "Zero-to-one product enabling seamless payment processing for small businesses. Simplified complex financial workflows into intuitive user experience.",
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080",
-    tags: ["Fintech", "0-to-1", "Payments", "SMB"],
-    demoUrl: "https://example.com",
-    caseStudyUrl: "https://example.com/case-study"
-  },
-  {
-    id: "4",
-    title: "Customer Feedback System",
-    description: "Built in-app feedback tool collecting and analyzing customer insights, reducing support tickets by 40% and informing product roadmap decisions.",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080",
-    tags: ["Customer Success", "Feedback", "Analytics", "Tools"],
-    demoUrl: "https://example.com",
-    caseStudyUrl: "https://example.com/case-study"
-  }
-];
+export const projects = projectPosts.map((post) => ({
+  id: post.id,
+  title: post.title,
+  description: post.summary,
+  image: post.image,
+  tags: post.tags,
+  demoUrl: post.productUrl,
+  demoLabel: post.productLabel ?? "View Product",
+  writeUpUrl: `/projects/${post.slug}`,
+  writeUpLabel: post.postLabel ?? "Post",
+}));
 
 export const education = [
   {

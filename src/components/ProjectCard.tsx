@@ -1,6 +1,7 @@
 import { ExternalLink, FileText } from "lucide-react";
 import { ImageWithFallback } from "./ImageWithFallback";
 import { motion } from "motion/react";
+import { Link } from "react-router";
 
 interface ProjectCardProps {
   title: string;
@@ -8,7 +9,13 @@ interface ProjectCardProps {
   image: string;
   tags: string[];
   demoUrl?: string;
-  caseStudyUrl?: string;
+  demoLabel?: string;
+  writeUpUrl?: string;
+  writeUpLabel?: string;
+}
+
+function isExternalUrl(url: string): boolean {
+  return /^https?:\/\//i.test(url);
 }
 
 export function ProjectCard({
@@ -17,7 +24,9 @@ export function ProjectCard({
   image,
   tags,
   demoUrl,
-  caseStudyUrl,
+  demoLabel = "View Product",
+  writeUpUrl,
+  writeUpLabel = "Post",
 }: ProjectCardProps) {
   return (
     <motion.div
@@ -54,26 +63,46 @@ export function ProjectCard({
 
         <div className="flex gap-3 pt-4 border-t border-gray-100 dark:border-gray-700">
           {demoUrl && (
-            <a
-              href={demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 text-sm bg-blue-600 dark:bg-blue-500 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors"
-            >
-              <ExternalLink size={16} />
-              View Product
-            </a>
+            isExternalUrl(demoUrl) ? (
+              <a
+                href={demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 text-sm bg-blue-600 dark:bg-blue-500 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors"
+              >
+                <ExternalLink size={16} />
+                {demoLabel}
+              </a>
+            ) : (
+              <Link
+                to={demoUrl}
+                className="flex items-center gap-2 px-4 py-2 text-sm bg-blue-600 dark:bg-blue-500 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors"
+              >
+                <ExternalLink size={16} />
+                {demoLabel}
+              </Link>
+            )
           )}
-          {caseStudyUrl && (
-            <a
-              href={caseStudyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 text-sm border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-            >
-              <FileText size={16} />
-              Case Study
-            </a>
+          {writeUpUrl && (
+            isExternalUrl(writeUpUrl) ? (
+              <a
+                href={writeUpUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 text-sm border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              >
+                <FileText size={16} />
+                {writeUpLabel}
+              </a>
+            ) : (
+              <Link
+                to={writeUpUrl}
+                className="flex items-center gap-2 px-4 py-2 text-sm border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              >
+                <FileText size={16} />
+                {writeUpLabel}
+              </Link>
+            )
           )}
         </div>
       </div>

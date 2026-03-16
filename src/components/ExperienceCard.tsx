@@ -84,7 +84,6 @@ export function ExperienceCard({
       ) : (
         achievements && achievements.length > 0 && (
           <div className="border-t border-gray-100 dark:border-gray-700 pt-4">
-            <p className="text-sm text-gray-900 dark:text-white mb-3">Key Achievements:</p>
             <ul className="space-y-2">
               {achievements.map((achievement, index) => (
                 <motion.li

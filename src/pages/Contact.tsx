@@ -2,6 +2,11 @@ import { useState } from "react";
 import { Mail, MapPin, Github, Linkedin, Send } from "lucide-react";
 import { personalInfo } from "../data/portfolio-data";
 import { motion } from "motion/react";
+import emailjs from "@emailjs/browser";
+
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -11,14 +16,44 @@ export function Contact() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
+    setSubmitted(false);
+    setErrorMessage("");
+
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      setErrorMessage("Contact form is not configured yet. Please try direct email for now.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          from_name: formData.name,
+          from_email: formData.email,
+          reply_to: formData.email,
+        },
+        EMAILJS_PUBLIC_KEY,
+      );
+
+      setSubmitted(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 3000);
+    } catch {
+      setErrorMessage("Something went wrong while sending your message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -105,7 +140,7 @@ export function Contact() {
             <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-6">
               <h3 className="text-lg text-gray-900 dark:text-white mb-2">Availability</h3>
               <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                I'm currently available for freelance projects and full-time opportunities.
+                I'm currently available for projects and other opportunities.
                 Let's build something amazing together!
               </p>
             </div>
@@ -118,6 +153,11 @@ export function Contact() {
               {submitted && (
                 <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-400 rounded-lg">
                   Thank you for your message! I'll get back to you soon.
+                </div>
+              )}
+              {errorMessage && (
+                <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 rounded-lg">
+                  {errorMessage}
                 </div>
               )}
 
@@ -190,10 +230,11 @@ export function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-8 py-3 bg-blue-600 dark:bg-blue-500 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors flex items-center justify-center gap-2"
+                  disabled={isSubmitting}
+                  className="w-full sm:w-auto px-8 py-3 bg-blue-600 dark:bg-blue-500 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   <Send size={18} />
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </button>
               </form>
             </div>
