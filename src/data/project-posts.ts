@@ -41,7 +41,7 @@ My Resume Developer Portal started from a simple idea: instead of sending a stat
 
 This Resume Developer Portal is exactly that. It is a small platform that exposes my background through endpoints like **/candidate**, **/experience**, and **/projects**, all structured in a clean and consistent way. The goal was not just to display information, but to present it the same way I think about products every day: as something that can be queried, integrated with, and explored.
 
-The backend is deployed on Render and lives in the [this](https://github.com/jonahanderson/dev-portal) github repository. It serves a set of REST APIs backed by a simple data layer, and the OpenAPI spec defines the structure of each endpoint so response schemas stay intuitive, predictable, and easy to understand.
+The backend is deployed on Render and lives in this [github repository](https://github.com/jonahanderson/dev-portal). It serves a set of REST APIs backed by a simple data layer, and the OpenAPI spec defines the structure of each endpoint so response schemas stay intuitive, predictable, and easy to understand.
 
 On the frontend side, I used [Mintlify](https://github.com/jonahanderson/docs) to build the documentation experience. That gave the project the feel of a real developer product, with structured docs, example responses, and a clean interface for exploring the API surface area.
 
