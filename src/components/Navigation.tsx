@@ -22,6 +22,7 @@ export function Navigation() {
     { path: "/experience", label: "Experience" },
     { path: "/contact", label: "Contact" },
   ];
+  const developerPortalUrl = "https://developer.jonahanderson.me";
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -29,7 +30,29 @@ export function Navigation() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="text-xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <div className="hidden md:flex items-center gap-4">
+            <Link to="/" className="text-xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              JA
+            </Link>
+            <span
+              className="h-5 w-px bg-gray-300 dark:bg-gray-600"
+              aria-hidden="true"
+            />
+            <a
+              href={developerPortalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+            >
+              <ExternalLink size={14} />
+              Developer Portal
+            </a>
+          </div>
+
+          <Link
+            to="/"
+            className="md:hidden text-xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          >
             JA
           </Link>
 
@@ -140,6 +163,15 @@ export function Navigation() {
                   {link.label}
                 </Link>
               ))}
+              <a
+                href={developerPortalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              >
+                <ExternalLink size={14} />
+                Developer Portal
+              </a>
               <a
                 href="https://v1.jonahanderson.me"
                 target="_blank"
