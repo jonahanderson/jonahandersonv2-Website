@@ -5,6 +5,7 @@ import { ProjectCard } from "../components/ProjectCard";
 import { ExperienceCard } from "../components/ExperienceCard";
 import { Download } from "lucide-react";
 import { motion } from "motion/react";
+import { usePageSeo } from "../components/Seo";
 
 type TabType = "experience" | "projects" | "skills";
 
@@ -13,6 +14,13 @@ function isTabType(value: string | null): value is TabType {
 }
 
 export function Experience() {
+  usePageSeo({
+    title: "Experience | Jonah Anderson",
+    description:
+      "Explore Jonah Anderson's product management experience, projects, and skills across integrations and platform products.",
+    path: "/experience",
+  });
+
   const [searchParams, setSearchParams] = useSearchParams();
   const initialTab = searchParams.get("tab");
   const [activeTab, setActiveTab] = useState<TabType>(

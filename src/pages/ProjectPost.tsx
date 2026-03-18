@@ -5,6 +5,7 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import { ImageWithFallback } from "../components/ImageWithFallback";
 import { getProjectPostBySlug } from "../data/project-posts";
 import { NotFound } from "./NotFound";
+import { usePageSeo } from "../components/Seo";
 
 type ParsedContentBlock =
   | { type: "heading"; level: 2 | 3; text: string }
@@ -149,8 +150,20 @@ export function ProjectPost() {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getProjectPostBySlug(slug) : undefined;
   const blocks = post ? parsePostContent(post.content) : [];
+  const isMissingPost = !post;
 
-  if (!post) {
+  usePageSeo({
+    title: post ? `${post.articleTitle ?? post.title} | Jonah Anderson` : "Page Not Found | Jonah Anderson",
+    description: post
+      ? post.summary
+      : "This project page could not be found on jonahanderson.me.",
+    path: post ? `/projects/${post.slug}` : window.location.pathname,
+    image: post?.image ?? "/og-image.png",
+    type: post ? "article" : "website",
+    noindex: isMissingPost,
+  });
+
+  if (isMissingPost) {
     return <NotFound />;
   }
 

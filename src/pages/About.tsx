@@ -2,8 +2,16 @@ import { personalInfo } from "../data/portfolio-data";
 import { ImageWithFallback } from "../components/ImageWithFallback";
 import { MapPin, Mail, Heart } from "lucide-react";
 import { motion } from "motion/react";
+import { usePageSeo } from "../components/Seo";
 
 export function About() {
+  usePageSeo({
+    title: "About Jonah Anderson | Product Manager",
+    description:
+      "Learn about Jonah Anderson's background in product management, APIs, integrations, and platform strategy.",
+    path: "/about",
+  });
+
   return (
     <div className="py-16 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

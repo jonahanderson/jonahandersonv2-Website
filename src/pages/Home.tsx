@@ -3,11 +3,19 @@ import { Github, Linkedin, ArrowRight, Mail } from "lucide-react";
 import { personalInfo } from "../data/portfolio-data";
 import { ImageWithFallback } from "../components/ImageWithFallback";
 import { motion } from "motion/react";
+import { usePageSeo } from "../components/Seo";
 
 const headshot =
   "/jonah-headshot.png";
 
 export function Home() {
+  usePageSeo({
+    title: "Jonah Anderson | Product & Integrations",
+    description:
+      "Product portfolio for Jonah Anderson, a senior product manager focused on integrations, growth, and product strategy.",
+    path: "/",
+  });
+
   return (
     <div className="min-h-[calc(100vh-4rem)]">
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800">

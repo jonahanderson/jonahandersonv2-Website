@@ -3,12 +3,20 @@ import { Mail, MapPin, Github, Linkedin, Send } from "lucide-react";
 import { personalInfo } from "../data/portfolio-data";
 import { motion } from "motion/react";
 import emailjs from "@emailjs/browser";
+import { usePageSeo } from "../components/Seo";
 
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export function Contact() {
+  usePageSeo({
+    title: "Contact Jonah Anderson",
+    description:
+      "Contact Jonah Anderson for product management opportunities, integrations work, and collaboration inquiries.",
+    path: "/contact",
+  });
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",

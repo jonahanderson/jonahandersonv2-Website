@@ -1,7 +1,14 @@
 import { Link } from "react-router";
 import { Home, ArrowLeft } from "lucide-react";
+import { usePageSeo } from "../components/Seo";
 
 export function NotFound() {
+  usePageSeo({
+    title: "Page Not Found | Jonah Anderson",
+    description: "The page you requested does not exist on jonahanderson.me.",
+    noindex: true,
+  });
+
   return (
     <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4">
       <div className="text-center max-w-md">
