@@ -23,6 +23,44 @@ export interface ProjectPost {
 // - Links: [label](https://example.com)
 export const projectPosts: ProjectPost[] = [
   {
+    id: "resume-developer-portal",
+    slug: "jonahs-resume-developer-portal",
+    title: "Jonah's Resume Developer Portal",
+    articleTitle: "Jonah's Resume Developer Portal",
+    summary:
+      "A small full-stack project that turns my resume into a developer-facing API product with live endpoints, OpenAPI schemas, and polished docs.",
+    image: "/resume-developer-portal.png",
+    imageAlt: "Resume Developer Portal with API endpoints and developer docs",
+    tags: ["REST API", "Render", "Mintlify", "OpenAPI", "EmailJS"],
+    productUrl: "https://developer.jonahanderson.me/",
+    productLabel: "View the Developer Portal",
+    postLabel: "Post",
+    content: `
+
+My Resume Developer Portal started from a simple idea: instead of sending a static resume, what if my experience and projects were exposed through a set of real, working APIs?
+
+This Resume Developer Portal is exactly that. It is a small platform that exposes my background through endpoints like **/candidate**, **/experience**, and **/projects**, all structured in a clean and consistent way. The goal was not just to display information, but to present it the same way I think about products every day: as something that can be queried, integrated with, and explored.
+
+The backend is deployed on Render and lives in the [this](https://github.com/jonahanderson/dev-portal) github repository. It serves a set of REST APIs backed by a simple data layer, and the OpenAPI spec defines the structure of each endpoint so response schemas stay intuitive, predictable, and easy to understand.
+
+On the frontend side, I used [Mintlify](https://github.com/jonahanderson/docs) to build the documentation experience. That gave the project the feel of a real developer product, with structured docs, example responses, and a clean interface for exploring the API surface area.
+
+A big part of the project was figuring out how to model "resume data" as an API. Things like experience, projects, and availability had to be structured in a way that made sense programmatically, not just visually. That meant defining clear schemas, keeping naming consistent, and making sure responses were easy to consume without extra context.
+
+I also wanted the portal to do more than expose read-only data. The contact endpoint uses **EmailJS** to trigger an email directly to my inbox, which gave me a lightweight way to add real interaction without having to build and maintain a separate mail service for a small personal project.
+
+This project also doubled as a way to practice shipping a simple full-stack system end to end. Render made it easy to get the API live quickly, and Mintlify provided a fast way to create polished developer-facing documentation without building a custom frontend from scratch.
+
+More than anything, this project reflects how I think about integrations, developer experience, and product design: take something familiar, structure it clearly, and make it easy for other people to explore.
+
+### Future Improvements
+
+- add more write endpoints
+- introduce authentication
+- track usage and analytics across endpoints
+- expand schemas to support more dynamic or real-time data`,
+  },
+  {
     id: "empire-game",
     slug: "empire-game",
     title: "Empire",
