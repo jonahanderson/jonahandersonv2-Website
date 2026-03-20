@@ -56,7 +56,6 @@ More than anything, this project reflects how I think about integrations, develo
 ### Future Improvements
 
 - add more write endpoints
-- introduce authentication
 - track usage and analytics across endpoints
 - expand schemas to support more dynamic or real-time data`,
   },
